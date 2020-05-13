@@ -1,0 +1,126 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&subset=latin-ext" rel="stylesheet">
+</head>
+<body>
+<h1 class="shop-heading shop-heading--main">ONLINE SHOP</h1>
+
+
+<main class="crud container">
+
+  <section class="datatable">
+    <h2>All products</h2>
+    <form
+            class="datatable__row datatable__row--add"
+            method="POST"
+            action="http://localhost:8080/v1/saveItemToCart"
+            data-item-add-form
+    >
+    <div class="datatable__items-container" data-items-container></div>
+    </form>
+
+  </section>
+
+  <section class="datatable_cart">
+    <h2>Your Cart:</h2>
+    <div class="datatable__cart-container" data-cart-container></div>
+
+      </fieldset>
+    </div>
+  </section>
+
+</main>
+
+<div class="template" data-datatable-row-template>
+  <form class="datatable__row" data-item-id="0">
+    <fieldset class="datatable__row-section datatable__row-section--input-section" data-name-section>
+      <label class="datatable__input-label">
+        Product name:
+      </label>
+
+      <p class="datatable__field-value" data-name-paragraph></p>
+
+    </fieldset>
+
+    <fieldset class="datatable__row-section datatable__row-section--input-section" data-price-section>
+      <label class="datatable__input-label">
+        Price:
+      </label>
+
+      <p class="datatable__field-value" data-price-paragraph></p>
+    </fieldset>
+
+    <fieldset class="datatable__row-section datatable__row-section--input-section" data-quantity-section>
+      <label class="datatable__input-label">
+        Quantity:
+      </label>
+      <input type="text" name="quantity" placeholder="quantity" required minlength="1">
+      <p class="datatable__field-value" data-quantity-paragraph></p>
+    </fieldset>
+
+    <fieldset class="datatable__row-section datatable__row-section--button-section">
+      <button type="submit" data-item-add-button class="datatable__button">Add to Cart</button>
+    </fieldset>
+    <fieldset class="datatable__row-section datatable__row-section--button-section">
+        <button type="button" data-item-delete-button class="datatable__button">Delete From Cart</button>
+    </fieldset>
+
+  </form>
+</div>
+
+
+<div class="template_cart" data-datatable-cart-row-template>
+
+  <form class="datatable_cart__row" data-item-id="0">
+
+    <fieldset class="datatable__row-section datatable__row-section--input-section" data-name-section>
+      <label class="datatable__input-label">
+        Product name:
+      </label>
+
+      <p class="datatable__field-value" data-name-paragraph></p>
+    </fieldset>
+
+    <fieldset class="datatable__row-section datatable__row-section--input-section" data-price-section>
+      <label class="datatable__input-label">
+        Price:
+      </label>
+
+      <p class="datatable__field-value" data-price-paragraph></p>
+    </fieldset>
+
+    <fieldset class="datatable__row-section datatable_cart__row-section--input-section" data-quantity-section>
+      <label class="datatable__input-label">
+        Quantity:
+      </label>
+
+      <p class="datatable__field-value" data-quantity-paragraph></p>
+
+    </fieldset>
+
+
+    <fieldset class="datatable__row-section datatable_cart__row-section--button-section">
+      <button type="button" data-item-delete-button class="datatable__button">Delete From Cart</button>
+    </fieldset>
+
+
+  </form>
+</div>
+<div class="template_endprice" data-cart-endprice>
+  <fieldset class="datatable__row-section datatable__row-section--input-section" data-cart-endprice-section>
+    <label class="datatable_cart_endprice__input-label">
+      End price:
+    </label>
+
+    <div id="priceResponse"> </div>
+  </fieldset>
+</div>
+<script src="jquery-3.4.1.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
